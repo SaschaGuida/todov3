@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
+const defaultTodo = {
+    title: "",
+    dueDate: "",
+    description: "",
+    important: false,
+    completed: false,
+};
+
 function TodoModal({ onAddTodo, initialData = null, isEditing = false }) {
     const [showModal, setShowModal] = useState(false);
-    const defaultTodo = {
-        title: "",
-        dueDate: "",
-        description: "",
-        important: false,
-        completed: false,
-    };
-
     const [newTodo, setNewTodo] = useState(defaultTodo);
 
     useEffect(() => {

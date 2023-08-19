@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import SearchBar from './SearchBar';
 import ProgressBar from './ProgressBar';
 import TodoCard from './TodoCard';
@@ -6,10 +7,11 @@ import TodoModal from './TodoModal';
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
-    const [editingTodo, setEditingTodo] = useState(null);  // Per tenere traccia del todo da modificare
+    const [editingTodo, setEditingTodo] = useState(null);
 
     const handleAddTodo = (newTodo) => {
-        setTodos([...todos, newTodo]);
+        const todoWithUniqueId = { ...newTodo, id: uuidv4() };
+        setTodos([...todos, todoWithUniqueId]);
     };
 
     const handleDeleteTodo = (todoToDelete) => {
@@ -40,7 +42,7 @@ function TodoList() {
             todo.id === updatedTodo.id ? updatedTodo : todo
         );
         setTodos(updatedTodos);
-        setEditingTodo(null);  // Reset dopo l'aggiornamento
+        setEditingTodo(null);
     };
     
 
