@@ -78,7 +78,7 @@ function TodoModal({ onAddTodo, initialData = null, isEditing = false }) {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" onClick={() => setShowModal(false)}>Close</button>
-                                <button type="button" className="btn btn-primary" onClick={handleSubmit}>
+                                <button type="button" className="btn btn-addTodo" onClick={handleSubmit}>
                                     {isEditing ? "Update Todo" : "Add Todo"}
                                 </button>
                             </div>
